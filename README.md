@@ -5,49 +5,38 @@ walker_holic 애플리케이션의 프론트와 서버사이 데이터를 주고
 
 ## Directories
 ```
-markuptest
+WHFlask
 	├── app
-	│   ├── api
+	│   ├── api
 	│   │   ├── decorator.py
 	│   │   ├── error_handler.py
 	│   │   ├── __init__.py
-	│   │	│
-	│   │   ├── sample_api
-	│   │   │   ├── calculator.py
-	│   │   │   ├── info.py
-	│   │   │   └── __init__.py
-	│   │	│	
-	│   │   └── template.py
-	│   │	
-	│   ├── asset
-	│   │   └── index.html
-	│   │
-	│   └── __init__.py
+	│   │	└── template.py
+	│   │   
+	│   ├── asset  
+	│   │   └── index.html   
+	│   │   
+	│   └── __init__.py
+	│   
+	│   
+	├───- controller   
+	│   
+	│   
+	│   
 	│
-	├── config.py
 	│
-	├── controller
-	│   ├── calculator.py
-	│   ├── __init__.py
-	│   └── util.py
 	│
-	├── manage.py
+	├───- model
+	│   
+	│   
+	│   
 	│
-	├── model
-	│   ├── __init__.py
-	│   └── mongodb
-	│       ├── base.py
-	│       ├── __init__.py
-	│       ├── log.py
-	│       └── master_config.py
 	│
-	└── tests
-	    ├── __init__.py
-	    ├── mock.py
-	    ├── test_basics.py
-	    ├── test_calc.py
-	    └── test_info.py
-
+	│
+	│
+	│ 
+	└── app.py
+	
 ```
 # Reference
 
