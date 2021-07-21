@@ -48,8 +48,8 @@ WHFlask
 	├───- model
 	    ├── __init__.py
 	    └── mysql
-		├── base.py
-	 	├── __init__.py 
+		├── __init__.py 
+	 	├── base.py
 	    	├── log.py
 	    	└── master_config.py
 	
@@ -63,6 +63,25 @@ WHFlask
 	- __init__.py
 	- auth.py
 	- template.py
+
+- app/asset
+	- index.html
+
+- app/__init__.py
+
+- controller
+	- __init__.py
+	- json_handler.py
+
+- model
+	- __init__.py
+	- mysql
+
+- model/mysql
+	- __init__.py
+	- base.py
+	- log.py
+	- master_config.py
 # Reference
 
 
