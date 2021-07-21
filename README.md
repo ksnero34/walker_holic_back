@@ -11,30 +11,29 @@ WHFlask
 	│   │   ├── decorator.py
 	│   │   ├── error_handler.py
 	│   │   ├── __init__.py
-	│   │	└── template.py
-	│   │   
-	│   ├── asset  
+	│   │	├── auth.py (요구사항이 적어 단일 파일로 작성)
+	│   │	└── template.py (형식상 적어놓음)
+	│   │   
+	│   ├── asset (형식상  적어놓음) 
 	│   │   └── index.html   
 	│   │   
 	│   └── __init__.py
 	│   
-	│   
+	|
 	├───- controller   
-	│   
-	│   
-	│   
+	│      ├── __init__.py
+	│      └── json_handler.py	   
 	│
-	│
-	│
+	|
 	├───- model
-	│   
-	│   
-	│   
+	│   ├── __init__.py
+	│   └── mysql
+	|	├── base.py
+	│	├── __init__.py 
+	│   	├── log.py
+	│   	└── master_config.py
 	│
-	│
-	│
-	│
-	│ 
+	|
 	└── app.py
 	
 ```
