@@ -26,6 +26,7 @@ walker_holic 애플리케이션의 프론트와 서버사이 데이터를 주고
 WHFlask
 	├── app.py
 	|
+	|
 	├── app
 	│   ├── api
 	│   │   ├── decorator.py
