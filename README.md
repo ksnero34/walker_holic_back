@@ -45,7 +45,7 @@ WHFlask
 	│      └── json_handler.py	   
 	│
 	|
-	├───- model
+	└── - model
 	    ├── __init__.py
 	    └── mysql
 		├── __init__.py 
