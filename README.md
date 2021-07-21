@@ -4,6 +4,7 @@
 walker_holic 애플리케이션의 프론트와 서버사이 데이터를 주고 받기 위한 코드입니다.
 
 ## Directories
+```
 markuptest
 	├── app
 	│   ├── api
@@ -47,7 +48,7 @@ markuptest
 	    ├── test_calc.py
 	    └── test_info.py
 
-
+```
 # Reference
 
 
