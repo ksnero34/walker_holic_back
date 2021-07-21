@@ -67,18 +67,18 @@ WHFlask
 - app/asset/
 	- index.html
 
-- app/\__init__.py
+- app/\__init\__.py
 
 - controller/
-	- __init\__.py
+	- \__init\__.py
 	- json_handler.py
 
 - model/
-	- __init__.py
+	- \__init\__.py
 	- mysql
 
 - model/mysql/
-	- __init__.py
+	- \__init\__.py
 	- base.py
 	- log.py
 	- master_config.py
