@@ -7,7 +7,7 @@ Flask의 사용방법은 알지만, 실제 런칭할 서비스에 맞게 디렉�
 
 
 
-iml1111님의 https://github.com/iml1111/IMFlask-Pymongo를 참고하여 작성하였습니다.<img src="http://img.shields.io/badge/iml1111-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
+iml1111님의 https://github.com/iml1111/IMFlask-Pymongo 를 참고하여 작성하였습니다.  <img src="http://img.shields.io/badge/iml1111-655ced?style=social&logo=github&color=informational" style="height : auto; margin-left : 10px; margin-right : 10px;"/>
 
 
 
