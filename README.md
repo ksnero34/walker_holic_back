@@ -57,14 +57,14 @@ WHFlask
 
 - app.py
 
-- app/api
+- app/api/
 	- decorator.py
 	- error_handler.py
 	- __init__.py
 	- auth.py
 	- template.py
 
-- app/asset
+- app/asset/
 	- index.html
 
 - app/\__init__.py
