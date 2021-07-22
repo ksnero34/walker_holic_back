@@ -5,26 +5,26 @@ import ssl
 import requests
 # import sql_connect
 
-application = Flask(__name__)
-application.config['JSON_AS_ASCII'] = False #
+app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False #
 
 
 
-@application.route("/walk_data", methods = ['GET'])
+@app.route("/walk_data", methods = ['GET'])
 def admin_to_login2():
     data = {'name' : '한준규', 'test':'test입니다.'}
     return jsonify(data)
 
 
 
-@application.route("/input", methods = ['GET','POST'])
+@app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
     parm = request.get_json()
     return parm['type']
 
-@application.route("/민원내용", methods = ['GET'])
+@app.route("/민원내용", methods = ['GET'])
 def admin_to_login3():
     return "민원내용을 json형슥으로 받아 db에 넣습니다."
 
 if __name__ == '__main__':
-    application.run('0.0.0.0', port = 80, debug = True)
+    app.run( port = 5000 )
