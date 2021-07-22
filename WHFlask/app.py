@@ -8,7 +8,6 @@ import requests
 application = Flask(__name__)
 application.config['JSON_AS_ASCII'] = False
 
-
 @application.route("/walk_data", methods = ['GET'])
 def admin_to_login2():
     data = {'name' : '한준규', 'test':'test입니다.'}
@@ -16,7 +15,7 @@ def admin_to_login2():
 
 @application.route("/input", methods = ['GET','POST'])
 def admin_to_login():
-    parm = reqeust.get_json()
+    parm = request.get_json()
     return "json_data.를 받아왔습니다.",parm
 
 @application.route("/민원내용", methods = ['GET'])
