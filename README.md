@@ -61,25 +61,25 @@ WHFlask
 - app/api/
 	- decorator.py
 	- error_handler.py
-	- __init__.py
+	- \_\_init\_\_.py
 	- auth.py
 	- template.py
 
 - app/asset/
 	- index.html
 
-- app/\__init\__.py
+- app/\_\_init\_\_.py
 
 - controller/
-	- \__init\__.py
+	- \_\_init\_\_.py
 	- json_handler.py
 
 - model/
-	- \__init\__.py
+	- \_\_init\_\_.py
 	- mysql
 
 - model/mysql/
-	- \__init\__.py
+	- \_\_init\_\_.py
 	- base.py
 	- log.py
 	- master_config.py
