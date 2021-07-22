@@ -15,10 +15,12 @@ def admin_to_login2():
     data = {'name' : '한준규', 'test':'test입니다.'}
     return jsonify(data)
 
+
+
 @application.route("/input", methods = ['GET','POST'])
 def admin_to_login():
     parm = request.get_json()
-    return "json_data.를 받아왔습니다.",parm
+    return parm['type']
 
 @application.route("/민원내용", methods = ['GET'])
 def admin_to_login3():
