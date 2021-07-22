@@ -6,7 +6,9 @@ import requests
 # import sql_connect
 
 application = Flask(__name__)
-application.config['JSON_AS_ASCII'] = False
+application.config['JSON_AS_ASCII'] = False #
+
+
 
 @application.route("/walk_data", methods = ['GET'])
 def admin_to_login2():
