@@ -41,12 +41,12 @@ WHFlask
 	│   └── __init__.py
 	│   
 	|
-	├───- controller   
-	│      ├── __init__.py
-	│      └── json_handler.py	   
+	├─── controller   
+	│    ├── __init__.py
+	│    └── json_handler.py	   
 	│
 	|
-	└── - model
+	└── model
 	    ├── __init__.py
 	    └── mysql
 		├── __init__.py 
