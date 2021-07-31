@@ -5,17 +5,38 @@ curs = conn.cursor()
 
 def input_report_data(json_data):
     global curs,conn
+    title = str(json_data['title'])
+    content = str(json_data['content'])
+    image = str(json_data['image'])
+    latitude = str(json_data['latitude'])
+    longitude = str(json_data['longitude'])
+    date = str(json_data['date'])
+    
     # 잘 되는뎅 json_data 문제, format 문제
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test','test','test')""")
     conn.commit()
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test','test','test')""")
+    # title
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {title}, 'test','test','test','test','test')""")
     conn.commit()
-    title = json_data['title']
-    content = json_data['content']
-    image = json_data['image']
-    latitude = json_data['latitude']
-    longitude = json_data['longitude']
-    data = json_data['date'] 
+    # content
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', {content},'test','test','test','test')""")
+    conn.commit()
+
+    # image
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test', {image},'test','test','test')""")
+    conn.commit()
+
+    # latitude
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test',{latitude},'test','test')""")
+    conn.commit()
+
+    # longitude
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test',{longitude},'test')""")
+    conn.commit()
+
+    # longitude
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test','test',{date})""")
+    conn.commit()
 
     # curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {title}, {content}, {image}, {latitude},{longitude},{data} )""")
     # print(" 데이터를 추가하였습니다 ! ")
