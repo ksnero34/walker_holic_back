@@ -12,15 +12,16 @@ def input_report_data(json_data):
     longitude = str(json_data['longitude'])
     date = str(json_data['date'])
     test = "test_title"
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test','test','test')""")
-    conn.commit()
-    # 잘 되는뎅 json_data 문제, format 문제 
-    query = """Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test',%s,'test')"""
-    curs.execute(query, ('fuckyou'))
-    conn.commit()
+    # ??? f를 이용해서 쿼리 날리면 안된다. ㅋㅋ
+    # curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test','test','test')""")
+    # conn.commit()
+    # # 잘 되는뎅 json_data 문제, format 문제 
+    # query = """Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test',%s,'test')"""
+    # curs.execute(query, ('fuckyou'))
+    # conn.commit()
     # title
-    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s, %s, %s)"""
-    curs.executemany(query, ( title, content, image, latitude, longitude, date))
+    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, "fuckimage", %s, %s, %s)"""
+    curs.executemany(query, ( title, content,  latitude, longitude, date))
     conn.commit()
     # content
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', {content},'test','test','test','test')""")
