@@ -12,11 +12,12 @@ def input_report_data(json_data):
     longitude = str(json_data['longitude'])
     date = str(json_data['date'])
     test = "test_title"
-    # 잘 되는뎅 json_data 문제, format 문제
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {test}, 'test','test','test','test','test')""")
-    conn.commit()
+    # 잘 되는뎅 json_data 문제, format 문제 
+    # curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s, %s, %s)""")
+    # conn.commit()
     # title
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {title}, 'test','test','test','test','test')""")
+    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s, %s, %s)"""
+    curs.executemany(query, ( title, content, image, latitude, longitude, date))
     conn.commit()
     # content
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', {content},'test','test','test','test')""")
