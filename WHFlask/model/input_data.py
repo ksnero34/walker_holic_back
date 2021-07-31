@@ -11,9 +11,9 @@ def input_report_data(json_data):
     latitude = str(json_data['latitude'])
     longitude = str(json_data['longitude'])
     date = str(json_data['date'])
-    
+    test = "test_title"
     # 잘 되는뎅 json_data 문제, format 문제
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test','test','test')""")
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {test}, 'test','test','test','test','test')""")
     conn.commit()
     # title
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {title}, 'test','test','test','test','test')""")
