@@ -8,11 +8,9 @@ from controller import json_handler
 import sys
 import logging
 logging.basicConfig(level=logging.DEBUG)
-print('This is error output', file=sys.stderr)
-print('This is standard output', file=sys.stdout)
+
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #
-
 
 
 @app.route("/walk_data", methods = ['GET'])
@@ -23,8 +21,11 @@ def admin_to_login2():
 
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
-    print("123123123",  file=sys.stderr)
+    print("helllo wrold")
+    
+    print("helllo wrold", file=sys.stderr)
     app.logger.info('Processing default request')
+    app.logger.info('helloworld')
     parm = request.get_json()
 
     
