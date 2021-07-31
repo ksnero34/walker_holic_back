@@ -5,9 +5,11 @@ curs = conn.cursor()
 
 def input_report_data(json_data):
     global curs,conn
+    # 잘 되는뎅 json_data 문제, format 문제
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test','test','test')""")
     conn.commit()
-
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', 'test','test','test','test','test')""")
+    conn.commit()
     title = json_data['title']
     content = json_data['content']
     image = json_data['image']
