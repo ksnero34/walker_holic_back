@@ -4,6 +4,7 @@ conn = pymysql.connect(host='localhost', user='doongu', password ='wnsrb12', db=
 curs = conn.cursor()
 
 
+
 '''create, test'''
 def test_create():
     global curs
