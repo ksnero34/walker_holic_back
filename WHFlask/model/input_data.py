@@ -5,13 +5,28 @@ curs = conn.cursor()
 
 def input_report_data(json_data):
     global curs,conn
-    curs.execute(f"""INSERT INTO compTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM compTBL), 'test', {json_data['title']}, {json_data['content']}, {json_data['image']}, {json_data['latitude']},{json_data['longitude']},{json_data['date']} )""")
+
+    title = json_data['title']
+    content = json_data['content']
+    image = json_data['image']
+    latitude = json_data['latitude']
+    longitude = json_data['longitude']
+    data = json_data['date'] 
+
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM compTBL), 'test', {title}, {content}, {image}, {latitude},{longitude},{data} )""")
     print(" 데이터를 추가하였습니다 ! ")
     conn.commit()
 
 
 def input_walk_data(json_data):
     global curs, conn
-    curs.execute(f"""INSERT INTO walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL), 'test', {json_data['destination']}, {json_data['diff']}, {json_data['start']}, {json_data['end']} )""")
+
+    destination = json_data['destination']
+    diff = json_data['diff']
+    start = json_data['start']
+    end = json_data['end']
+    
+    curs.execute(f"""Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL), 'test', {destination}, {diff}, {start}, {end} )""")
+
     print(" 데이터를 추가하였습니다 ! ")
     conn.commit()
