@@ -6,7 +6,8 @@ import requests
 from controller import json_handler
 # import sql_connect
 import sys
-
+import logging
+logging.basicConfig(level=logging.DEBUG)
 print('This is error output', file=sys.stderr)
 print('This is standard output', file=sys.stdout)
 app = Flask(__name__)
