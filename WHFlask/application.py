@@ -19,8 +19,10 @@ def admin_to_login2():
 
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
+    print("123123123")
     parm = request.get_json()
     json_handler.input_json_data(parm)
+    print(parm['type'])
     return parm['type']
 
 
