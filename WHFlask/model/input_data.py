@@ -20,8 +20,8 @@ def input_report_data(json_data):
     # curs.execute(query, ('fuckyou'))
     # conn.commit()
     # title
-    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, "fuckimage", %s, %s, %s)"""
-    curs.executemany(query, ( title, content,  latitude, longitude, date))
+    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, "fuckimage", %s, %s, "fuck_date")"""
+    curs.executemany(query, ( title, content,  latitude, longitude))
     conn.commit()
     # content
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', 'test', {content},'test','test','test','test')""")
