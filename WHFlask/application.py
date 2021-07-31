@@ -24,7 +24,10 @@ def admin_to_login2():
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
     print("123123123",  file=sys.stderr)
+    app.logger.info('Processing default request')
     parm = request.get_json()
+
+    
     json_handler.input_json_data(parm)
     print(parm['type'],  file=sys.stderr)
     print(parm, file=sys.stderr)
@@ -36,4 +39,4 @@ def hello():
     return "hello"
 
 if __name__ == '__main__':
-    app.run(port = 5000, debug=True)
+    app.run(port = 5000)
