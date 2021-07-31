@@ -6,8 +6,6 @@ import requests
 from controller import json_handler
 # import sql_connect
 import sys
-import logging
-logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #
@@ -21,17 +19,12 @@ def admin_to_login2():
 
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
-    print("helllo wrold")
-    
-    print("helllo wrold", file=sys.stderr)
-    app.logger.info('Processing default request')
-    app.logger.info('helloworld')
+
     parm = request.get_json()
 
     
     json_handler.input_json_data(parm)
-    print(parm['type'],  file=sys.stderr)
-    print(parm, file=sys.stderr)
+
     return parm['type']
 
 
