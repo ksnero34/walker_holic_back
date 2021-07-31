@@ -15,7 +15,8 @@ def input_report_data(json_data):
     curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test','test','test')""")
     conn.commit()
     # 잘 되는뎅 json_data 문제, format 문제 
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test',{test},'test')""")
+    query = """Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test',%s,'test')"""
+    curs.execute(query, ('fuckyou'))
     conn.commit()
     # title
     query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s, %s, %s)"""
