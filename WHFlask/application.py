@@ -5,9 +5,6 @@ import ssl
 import requests
 from controller import json_handler
 # import sql_connect
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #
