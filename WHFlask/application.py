@@ -3,6 +3,7 @@
 from flask import Flask, jsonify, request
 import ssl
 import requests
+from controller import json_handler
 # import sql_connect
 
 app = Flask(__name__)
@@ -19,7 +20,8 @@ def admin_to_login2():
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
     parm = request.get_json()
-    return parm['type']  
+    json_handler.input_json_data(parm)
+    return parm['type']
 
 
 @app.route("/", methods = ["GET"])
