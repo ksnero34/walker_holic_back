@@ -13,7 +13,7 @@ def input_report_data(json_data):
     longitude = json_data['longitude']
     data = json_data['date'] 
 
-    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL), 'test', {title}, {content}, {image}, {latitude},{longitude},{data} )""")
+    curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', {title}, {content}, {image}, {latitude},{longitude},{data} )""")
     print(" 데이터를 추가하였습니다 ! ")
     conn.commit()
 
@@ -26,7 +26,7 @@ def input_walk_data(json_data):
     start = json_data['start']
     end = json_data['end']
     
-    curs.execute(f"""Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL), 'test', {destination}, {diff}, {start}, {end} )""")
+    curs.execute(f"""Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL tester), 'test', {destination}, {diff}, {start}, {end} )""")
 
     print(" 데이터를 추가하였습니다 ! ")
     conn.commit()
