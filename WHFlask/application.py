@@ -38,6 +38,6 @@ def admin_to_login():
 @app.route("/", methods = ["GET"])
 def hello():
     return "hello"
-
+# 테스트를위한 주석입니다. 
 if __name__ == '__main__':
     app.run(port = 5000)
