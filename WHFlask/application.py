@@ -6,6 +6,7 @@ import requests
 from controller import json_handler
 # import sql_connect
 import sys
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #
@@ -19,11 +20,14 @@ def admin_to_login2():
 
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
+    type = request.form["type"]
+    title = request.form["title"]
+    file_img = request.files['image']
+    file_img.save(secure_filename(file_img.filename))
 
-    parm = request.form
 
     f = open("test.txt", "wr")
-    f.write(str(parm))
+    f.write(type)
     f.close()
     return 1
 
