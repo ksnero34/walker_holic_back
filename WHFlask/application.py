@@ -20,7 +20,7 @@ def admin_to_login2():
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
 
-    parm = request.form['data']
+    parm = request.form
 
     f = open("test.txt", "wr")
     f.write(str(parm))
@@ -33,4 +33,4 @@ def hello():
     return "hello"
 # 테스트를위한 주석입니다. 
 if __name__ == '__main__':
-    app.run(port = 5000)
+    app.run('0.0.0.0', port = 5000)
