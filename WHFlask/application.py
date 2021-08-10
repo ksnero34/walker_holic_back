@@ -24,7 +24,7 @@ def admin_to_login():
 
     f = open("test.txt", "wr")
     f.write(str(parm))
-
+    f.close()
     return parm['type']
 
 
