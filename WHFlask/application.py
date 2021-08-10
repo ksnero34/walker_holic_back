@@ -20,10 +20,10 @@ def admin_to_login2():
 @app.route("/input", methods = ['GET','POST'])
 def admin_to_login():
 
-    parm = request.get_json()
+    parm = request.form['data']
 
-    
-    json_handler.input_json_data(parm)
+    f = open("test.txt", "wr")
+    f.write(str(parm))
 
     return parm['type']
 
