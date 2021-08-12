@@ -66,9 +66,9 @@ def select_():
         json_form["title"] = return_data[index][1]
         
         json_form["url"] = return_data[index][2]
-        return_select_data.append(json_form)
+        return_select_data.append(dict(json_form))
 
-    return str(return_select_data)
-    
+    return jsonify(return_select_data)
+
 if __name__ == '__main__':
     app.run( port = 5000)
