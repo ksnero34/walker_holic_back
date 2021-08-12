@@ -29,6 +29,12 @@ def report_data_to_db():
     latitude = request.form['latitude']
     longitude = request.form['longitude']
     date = request.form['date']
+    print(type)
+    print(title)
+    print(content)
+    print(latitude)
+    print(longitude)
+    print(date)
     image.save(secure_filename(image.filename))
 
     input_data.input_report_data(type, title, content, image.filename, latitude, longitude, date)
