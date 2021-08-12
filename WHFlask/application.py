@@ -8,7 +8,7 @@ from controller import json_handler
 import sys
 from werkzeug.utils import secure_filename
 
-from model import input_data
+from model import input_data, select_data
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #
@@ -35,12 +35,12 @@ def report_data_to_db():
     print(latitude)
     print(longitude)
     print(date)
-    image.save(secure_filename(image.filename))
+    image.save("./image", secure_filename(date))
+    #이미지 이름 date 로 바꾸기
+    input_data.input_report_data(type, title, content, date, latitude, longitude, date)
 
-    input_data.input_report_data(type, title, content, image.filename, latitude, longitude, date)
 
-
-    return "hello"
+    return "성공적으로 report_data를 데이터를 넣었습니다."
 
 
 @app.route("/input_walk_log", methods = ['POST'])
@@ -50,15 +50,16 @@ def walk_data_to_db():
     diff = json_data['diff']
     start = json_data['start']
     end = json_data['end']
-
+    
     input_data.input_walk_data(destination, diff, start, end)
 
-    return "hello"
+    return "성공적으로 walk_data를 넣었습니다."
 
-@app.route("/", methods = ["GET"])
-def hello():
-    return "hello"
-
+@app.route("/notice", methods = ["GET"])
+def select_():
+    return_data = select_data.select_noticeTBL()
+    print(return_data)
+    print(type(return_data))
 # 테스트를위한 주석입니다. 
 if __name__ == '__main__':
     app.run( port = 5000)
