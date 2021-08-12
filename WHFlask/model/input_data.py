@@ -14,8 +14,8 @@ def input_report_data(type, title, content, image, latitude, longitude, date):
     # curs.execute(query, ('fuckyou'))
     # conn.commit()
     # title
-    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), %s, %s, %s, %s, %s,%s, %s)"""
-    curs.execute(query, (type, title, content, image, latitude, longitude, date,))
+    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s,%s, %s)"""
+    curs.execute(query, ( title, content, image, latitude, longitude, date,))
     conn.commit()
 
     '''
