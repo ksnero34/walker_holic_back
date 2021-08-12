@@ -22,14 +22,12 @@ def admin_to_login2():
 def admin_to_login():
     type = request.form["type"]
     title = request.form["title"]
-    # file_img = request.files['image']
-    # file_img.save(secure_filename(file_img.filename))
+    file_img = request.files['image']
+    file_img.save(secure_filename(file_img.filename))
 
 
-    # f = open("test.txt", "wr")
-    # f.write(type)
-    # f.close()
-    return 1
+
+    return "hello"
 
 
 @app.route("/", methods = ["GET"])
@@ -37,4 +35,4 @@ def hello():
     return "hello"
 # 테스트를위한 주석입니다. 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port = 5000)
+    app.run( port = 5000)
