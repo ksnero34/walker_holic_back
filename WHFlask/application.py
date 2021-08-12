@@ -58,8 +58,17 @@ def walk_data_to_db():
 @app.route("/notice", methods = ["GET"])
 def select_():
     return_data = select_data.select_noticeTBL()
-    print(return_data)
-    print(type(return_data))
-# 테스트를위한 주석입니다. 
+    json_form = {"id" : 0, "title" : "", "url" : ""}
+    return_select_data = []
+    for index in range(len(return_data)):
+        json_form["id"] = return_data[index][0]
+        
+        json_form["title"] = return_data[index][1]
+        
+        json_form["url"] = return_data[index][2]
+        return_select_data.append(json_form)
+
+    return str(return_select_data)
+    
 if __name__ == '__main__':
     app.run( port = 5000)
