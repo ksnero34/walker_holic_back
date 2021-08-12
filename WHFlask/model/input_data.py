@@ -1,10 +1,17 @@
 import pymysql
 '''connect doongu, compTBL'''
-conn = pymysql.connect(host='localhost', user='doongu', password ='wnsrb12', db='walker_holic',port =3306, charset='utf8')
-curs = conn.cursor()
 
 def input_report_data(type, title, content, image, latitude, longitude, date):
-    global curs,conn
+    conn = pymysql.connect(host='localhost', user='doongu', password ='wnsrb12', db='walker_holic',port =3306, charset='utf8')
+    
+    try: # 자원을 할당해주고 해제해주지 않으면 close해도 에러난다.
+        with conn.cursor() as curs:
+        
+            query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s,%s, %s)"""
+            curs.execute(query, ( title, content, image, latitude, longitude, date,))
+            conn.commit()
+    finally:
+        conn.close()
     
     # ??? f를 이용해서 쿼리 날리면 안된다. ㅋㅋ
     # curs.execute(f"""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test','test','test','test','test','test','test')""")
@@ -14,10 +21,7 @@ def input_report_data(type, title, content, image, latitude, longitude, date):
     # curs.execute(query, ('fuckyou'))
     # conn.commit()
     # title
-    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), 'test', %s, %s, %s, %s,%s, %s)"""
-    curs.execute(query, ( title, content, image, latitude, longitude, date,))
-    conn.commit()
-    conn.close()
+
     '''
     test
     '''
@@ -48,8 +52,13 @@ def input_report_data(type, title, content, image, latitude, longitude, date):
 
 def input_walk_data(destination, diff, start, end):
     global curs, conn
-    
-    query = """Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL tester), 'test', %s, %s, %s, %s)"""
-    curs.executemany(query, (destination, diff, start, end,))
-    conn.commit()
-    conn.close()
+    conn = pymysql.connect(host='localhost', user='doongu', password ='wnsrb12', db='walker_holic',port =3306, charset='utf8')
+
+    try: # 자원을 할당해주고 해제해주지 않으면 close해도 에러난다.
+        with conn.cursor() as curs:
+        
+            query = """Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL tester), 'test', %s, %s, %s, %s)"""
+            curs.execute(query, (destination, diff, start, end,))
+            conn.commit()
+    finally:
+        conn.close()
