@@ -14,7 +14,7 @@ def input_report_data(type, title, content, image, latitude, longitude, date):
     # curs.execute(query, ('fuckyou'))
     # conn.commit()
     # title
-    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL), %s, %s, %s, %s, %s,%s, %s)"""
+    query ="""Insert into compTBL VALUES ( (SELECT IFNULL(MAX(compID) + 1, 1) FROM compTBL test), %s, %s, %s, %s, %s,%s, %s)"""
     curs.execute(query, (type, title, content, image, latitude, longitude, date,))
     conn.commit()
 
@@ -49,6 +49,6 @@ def input_report_data(type, title, content, image, latitude, longitude, date):
 def input_walk_data(destination, diff, start, end):
     global curs, conn
     
-    query = """Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL), 'test', %s, %s, %s, %s)"""
-    curs.execute(query, (destination, diff, start, end))
+    query = """Insert into walkTBL VALUES ( (SELECT IFNULL(MAX(datacode) + 1, 1) FROM walkTBL tester), 'test', %s, %s, %s, %s)"""
+    curs.executemany(query, (destination, diff, start, end,))
     conn.commit()
