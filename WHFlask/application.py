@@ -64,7 +64,7 @@ def select_():
 
 # select 부분
 @app.route("/issue", methods = ["GET"])
-def select_():
+def select_2():
     return_data = select_data.select_issue()
     json_form = {"id" : 0, "title" : "", "url" : ""}
     return_select_data = []
