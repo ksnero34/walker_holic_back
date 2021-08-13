@@ -14,12 +14,7 @@ app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False #
 
 
-@app.route("/walk_data", methods = ['GET'])
-def admin_to_login2():
-    data =[ {'id': 1 ,'title':'멸종', 'url' : '대머리'},
-	     {'id' : 2, 'title': '이선우', 'url' : 'ㅋㅋ'}]
-    return jsonify(data)
-
+# form 형식으로 받음
 @app.route("/input_report_data", methods = ['POST'])
 def report_data_to_db():
     type = request.form["type"]
@@ -29,12 +24,7 @@ def report_data_to_db():
     latitude = request.form['latitude']
     longitude = request.form['longitude']
     date = request.form['date']
-    print(type)
-    print(title)
-    print(content)
-    print(latitude)
-    print(longitude)
-    print(date)
+ 
     image.save(os.path.join("./image", secure_filename(date)))
     #이미지 이름 date 로 바꾸기
     input_data.input_report_data(type, title, content, date+".jpg", latitude, longitude, date)
@@ -42,7 +32,7 @@ def report_data_to_db():
 
     return "성공적으로 report_data를 데이터를 넣었습니다."
 
-
+# json형식으로 받음
 @app.route("/input_walk_log", methods = ['POST'])
 def walk_data_to_db():
     json_data = request.get_json()
@@ -55,6 +45,8 @@ def walk_data_to_db():
 
     return "성공적으로 walk_data를 넣었습니다."
 
+
+# select 부분
 @app.route("/notice", methods = ["GET"])
 def select_():
     return_data = select_data.select_noticeTBL()
@@ -69,6 +61,23 @@ def select_():
         return_select_data.append(dict(json_form))
 
     return jsonify(return_select_data)
+
+# select 부분
+@app.route("/issue", methods = ["GET"])
+def select_():
+    return_data = select_data.select_noticeTBL()
+    json_form = {"id" : 0, "title" : "", "url" : ""}
+    return_select_data = []
+    for index in range(len(return_data)):
+        json_form["id"] = return_data[index][0]
+        
+        json_form["title"] = return_data[index][1]
+        
+        json_form["url"] = return_data[index][2]
+        return_select_data.append(dict(json_form))
+
+    return jsonify(return_select_data)
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port = 5000)
