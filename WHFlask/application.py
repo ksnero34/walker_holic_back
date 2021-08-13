@@ -69,7 +69,7 @@ def select_2():
     json_form2 = {"id" : 0, "title" : "", "url" : ""}
     return_select_data2 = []
     for index in range(len(return_data2)):
-        json_form2["id"] = return_data2[index][0]
+        json_form2["id"] = int(return_data2[index][0])
         
         json_form2["title"] = return_data2[index][1]
         
