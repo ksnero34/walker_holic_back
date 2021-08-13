@@ -65,18 +65,18 @@ def select_():
 # select 부분
 @app.route("/issue", methods = ["GET"])
 def select_2():
-    return_data = select_data.select_issue()
-    json_form = {"id" : 0, "title" : "", "url" : ""}
-    return_select_data = []
-    for index in range(len(return_data)):
-        json_form["id"] = return_data[index][0]
+    return_data2 = select_data.select_issue()
+    json_form2 = {"id" : 0, "title" : "", "url" : ""}
+    return_select_data2 = []
+    for index in range(len(return_data2)):
+        json_form2["id"] = return_data2[index][0]
         
-        json_form["title"] = return_data[index][1]
+        json_form2["title"] = return_data2[index][1]
         
-        json_form["url"] = return_data[index][2]
-        return_select_data.append(dict(json_form))
+        json_form2["url"] = return_data2[index][2]
+        return_select_data2.append(dict(json_form2))
 
-    return jsonify(return_select_data)
+    return jsonify(return_select_data2)
 
 
 if __name__ == '__main__':
